@@ -72,7 +72,7 @@ export const loginStyles = StyleSheet.create({
     },
 
     link: {
-        marginTop: 20,
+        marginTop: 10,
         textAlign: "center",
         color: "#2563EB",
         fontSize: 15,

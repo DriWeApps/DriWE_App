@@ -12,29 +12,29 @@ paddingTop:40
 },
 
 header:{
-alignItems:"center",
-justifyContent:"center",
-marginBottom:10,
-position:"relative"
+  alignItems:"center",
+  justifyContent:"center",
+  marginBottom:10,
+  position:"relative"
 },
 
 logo:{
-width:80,
-height:80,
-resizeMode:"contain",
-alignSelf:"center"
+  width:80,
+  height:80,
+  resizeMode:"contain",
+  alignSelf:"center"
 },
 
 notificationButton:{
-position:"absolute",
-right:0,
-top:20
+  position:"absolute",
+  right:0,
+  top:20
 },
 
 menuButton:{
-position:"absolute",
-left:0,
-top:20
+  position:"absolute",
+  left:0,
+  top:20
 },
 
 headerIcon:{
@@ -64,9 +64,9 @@ width:"48%",
 alignItems:"center"
 },
 
-underlineTitle:{
-textDecorationLine:"underline",
-textDecorationColor:"black"
+underlineTitle: {
+  textDecorationLine: "underline",
+  textDecorationColor: "black",
 },
 
 topButtonText:{
@@ -90,7 +90,7 @@ justifyContent:"space-between"
 
 box:{
 width:"48%",
-backgroundColor:"#FFF8DC",
+backgroundColor:"#C3B1E1",
 padding:15,
 borderRadius:12,
 alignItems:"center",
@@ -168,59 +168,23 @@ borderRadius:10,
 resizeMode:"contain"
 },
 
-/* BOOKING SCREEN */
-
-bookingContainer:{
-flex:1,
-marginTop:10
-},
-
 locationBox:{
 backgroundColor:"#fff",
 padding:12,
-borderRadius:12,
-elevation:3,
-marginBottom:10
+borderRadius:10,
+marginBottom:10,
+elevation:2
 },
 
-map:{
-flex:1,
-borderRadius:10
-},
-
-confirmButton:{
-backgroundColor:"#F4C21B",
-padding:16,
-borderRadius:30,
-alignItems:"center",
-marginTop:10
-},
-
-confirmText:{
-fontSize:16,
+locationTitle:{
+fontSize:14,
 fontWeight:"bold",
-color:"#fff"
+marginBottom:4
 },
 
-bookingHeader:{
-flexDirection:"row",
-alignItems:"center",
-marginBottom:10
-},
-
-backArrow:{
-padding:8
-},
-
-backIcon:{
-fontSize:26,
-fontWeight:"bold"
-},
-
-bookingTitle:{
-fontSize:20,
-fontWeight:"bold",
-marginLeft:10
+locationText:{
+fontSize:13,
+color:"#555"
 },
 
 locationCard:{
@@ -262,47 +226,24 @@ height:25,
 marginLeft:8,
 marginVertical:5
 },
-locationDisplay:{
-flexDirection:"row",
+
+map:{
+flex:1,
+borderRadius:10
+},
+
+confirmButton:{
+backgroundColor:"#F4C21B",
+padding:16,
+borderRadius:30,
 alignItems:"center",
-justifyContent:"center",
-backgroundColor:"#fff",
-padding:8,
-borderRadius:10,
-marginBottom:10,
-elevation:2
+marginTop:10
 },
 
-locationIcon:{
-fontSize:18,
-marginRight:6
-},
-
-locationText:{
-fontSize:15,
-fontWeight:"500"
-},
-
-stickyNotification: {
-  position: "absolute",
-  top: 0, // change to bottom: 0 if you want bottom
-  width: "100%",
-  backgroundColor: "#000",
-  padding: 15,
-  flexDirection: "row",
-  justifyContent: "space-between",
-  alignItems: "center",
-  zIndex: 999,
-},
-
-notificationText: {
-  color: "#fff",
-  fontSize: 14,
-},
-
-closeBtn: {
-  color: "#fff",
-  fontSize: 18,
+confirmText:{
+fontSize:16,
+fontWeight:"bold",
+color:"#fff"
 },
 
 });

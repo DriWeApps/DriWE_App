@@ -1,39 +1,34 @@
 import { router } from "expo-router";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 import { indexStyleSheet } from "./styles/index";
 
 export default function Index() {
 
-  const goToRegister = (type: string) => {
-    router.push({
-      pathname: "/register",
-      params: { driverType: type }
-    } as any);
-  };
-
   return (
     <View style={indexStyleSheet.container}>
 
-      <Text style={indexStyleSheet.title}>Welcome to DriWE</Text>
-
-      <View style={indexStyleSheet.buttonWrapper}>
-        <TouchableOpacity
-          style={indexStyleSheet.customButton}
-          onPress={() => goToRegister("Ride")}
-        >
-          <Text style={indexStyleSheet.buttonText}>Ride</Text>
-        </TouchableOpacity>
+      {/* Logo */}
+      <View style={indexStyleSheet.header}>
+        <Image
+          source={require("../assets/images/DriWE-Logo.png")}
+          style={indexStyleSheet.logo}
+          resizeMode="contain"
+        />
       </View>
 
-      <View style={indexStyleSheet.buttonWrapper}>
-        <TouchableOpacity
-          style={indexStyleSheet.customButton}
-          onPress={() => goToRegister("Courier")}
-        >
-          <Text style={indexStyleSheet.buttonText}>Courier</Text>
-        </TouchableOpacity>
-      </View>
+     <Text style={indexStyleSheet.title}>Welcome to DriWE</Text>
 
+      {/* Main Image */}
+      <Image
+        source={require("../assets/images/DriWE photo.png")}
+        style={indexStyleSheet.mainImage}
+        resizeMode="contain"
+      />
+
+      {/* Title */}
+     
+
+      {/* Login Button */}
       <View style={indexStyleSheet.buttonWrapper}>
         <TouchableOpacity
           style={indexStyleSheet.customButton}
@@ -43,6 +38,17 @@ export default function Index() {
         </TouchableOpacity>
       </View>
 
+      {/* Register Button */}
+      <View style={indexStyleSheet.buttonWrapper}>
+        <TouchableOpacity
+          style={indexStyleSheet.customButton}
+          onPress={() => router.push("/register" as any)}
+        >
+          <Text style={indexStyleSheet.buttonText}>Sign Up</Text>
+        </TouchableOpacity>
+      </View>
+
     </View>
   );
 }
+

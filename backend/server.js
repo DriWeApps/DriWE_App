@@ -32,17 +32,17 @@ db.getConnection((err, connection) => {
 // ================= REGISTER API =================
 app.post("/register", (req, res) => {
 
-  const { name, email, password, driverType } = req.body;
+  const { name, email, password, MobileNumber } = req.body;
 
-  if (!name || !email || !password) {
+  if (!name || !email || !password || !MobileNumber) {
     return res.status(400).json({
       message: "Please fill all fields"
     });
   }
 
-  const sql = "INSERT INTO users (name,email,password,DriverType) VALUES (?,?,?,?)";
+  const sql = "INSERT INTO users (name,email,password,MobileNumber) VALUES (?,?,?,?)";
 
-  db.query(sql, [name, email, password, driverType], (err, result) => {
+  db.query(sql, [name, email, password, MobileNumber], (err, result) => {
 
     if (err) {
 
@@ -113,6 +113,80 @@ app.post("/login", (req, res) => {
 
   });
 
+});
+
+// ================= GET USER PROFILE =================
+app.get("/user/profile", (req, res) => {
+
+  const email = req.headers.email;
+
+  if (!email) {
+    return res.status(400).json({
+      message: "Email required"
+    });
+  }
+
+  const sql = "SELECT name,email,MobileNumber FROM users WHERE email=?";
+
+  db.query(sql, [email], (err, result) => {
+
+    if (err) {
+      return res.status(500).json({
+        message: "Database error",
+        error: err.message
+      });
+    }
+
+    if (result.length > 0) {
+      res.json(result[0]);
+    } else {
+      res.status(404).json({
+        message: "User not found"
+      });
+    }
+
+  });
+
+});
+
+
+// ================= CONTACT API =================
+app.post("/contact", (req, res) => {
+
+  const { FirstName, LastName, Email, ContactNumber, Message } = req.body;
+
+  if (!FirstName || !LastName || !Email || !ContactNumber || !Message) {
+    return res.status(400).json({
+      message: "Please fill all fields"
+    });
+  }
+
+  const sql = `
+  INSERT INTO contactus 
+  (FirstName, LastName, Email, ContactNumber, Message)
+  VALUES (?, ?, ?, ?, ?)
+  `;
+
+  db.query(
+    sql,
+    [FirstName, LastName, Email, ContactNumber, Message],
+    (err, result) => {
+
+      if (err) {
+        console.log("Contact error:", err);
+
+        return res.status(500).json({
+          message: "Failed to submit message",
+          error: err.message
+        });
+      }
+
+      res.json({
+        message: "Message submitted successfully"
+      });
+
+    }
+  );
 });
 
 
