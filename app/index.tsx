@@ -24,8 +24,6 @@ export default function Index() {
         style={indexStyleSheet.mainImage}
         resizeMode="contain"
       />
-
-      {/* Title */}
      
 
       {/* Login Button */}
